@@ -25,7 +25,7 @@
 
     .home {
       fill: #747681;
-      border-left: 3px solid #747681;
+      border-left: 2px solid #747681;
     }
   }
 
@@ -78,7 +78,9 @@
     }
   }
 
-  // Editor
+  // ***********************************************
+  //                   EDITORS
+  // ***********************************************
   .editor {
     display: flex;
     flex-direction: column;
@@ -128,6 +130,87 @@
 
         .filename {
           width: 100px;
+        }
+      }
+
+      .item:hover {
+        background-color: #303338;
+
+        .cross {
+          fill: #A6A8B5;
+        }
+      }
+
+      .selected {
+        color: #D8BA1F;
+
+        .cross {
+          fill: #D8BA1F;
+        }
+      }
+
+      .selected:hover {
+        color: #D8BA1F;
+
+        .cross {
+          fill: #D8BA1F;
+        }
+      }
+    }
+  }
+
+  // ***********************************************
+  //                    FILES
+  // ***********************************************
+  .files {
+    display: flex;
+    flex-direction: column;
+
+    width: 200px;
+
+    //Header
+    .header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      width: 200px;
+      height: 24px;
+
+      .text {
+        color: #53555E;
+        font-size: 16px;
+      }
+      .arrow {
+        fill: #53555E;
+      }
+    }
+
+    //List
+    .list {
+      display: flex;
+      flex-direction: column;
+
+      width: 200px;
+
+      .item {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        width: 176px;
+        height: 24px;
+
+        cursor: pointer;
+        padding: 0px 12px 0px 12px;
+
+        .cross {
+          cursor: pointer;
+        }
+
+        .filename {
+          width: 148px;
         }
       }
 

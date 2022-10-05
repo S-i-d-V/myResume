@@ -10,6 +10,7 @@ import { FilesService } from 'src/app/services/files.service';
 export class SidenavComponent implements OnInit {
 
   editorOpen: boolean = true;
+  filesOpen: boolean = true;
 
   constructor(public fileService: FilesService) { }
 
@@ -18,6 +19,10 @@ export class SidenavComponent implements OnInit {
 
   switchEditor(): void {
     this.editorOpen = !this.editorOpen;
+  }
+
+  switchFiles(): void {
+    this.filesOpen = !this.filesOpen;
   }
 
 }

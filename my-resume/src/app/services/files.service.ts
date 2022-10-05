@@ -13,19 +13,19 @@ export class FilesService {
       selected: true
     }, {
       fileName: 'education.ts',
-      opened: true,
+      opened: false,
       selected: false
     }, {
       fileName: 'experience.ts',
-      opened: true,
+      opened: false,
       selected: false
     }, {
       fileName: 'skills.ts',
-      opened: true,
+      opened: false,
       selected: false
     }, {
       fileName: 'contact.ts',
-      opened: true,
+      opened: false,
       selected: false
     }
   ];
@@ -37,14 +37,31 @@ export class FilesService {
   selectEditor(fileName: string): void{
     this.files.forEach((file) => file.selected = false);
     let foundIndex = this.files.findIndex((file) => file.fileName === fileName);
-    if (foundIndex != -1)
+    if (foundIndex != -1){
       this.files[foundIndex].selected = true;
+      this.openEditor(fileName);
+    }
   }
 
   closeEditor(fileName: string): void{
     let foundIndex = this.files.findIndex((file) => file.fileName === fileName);
-    if (foundIndex != -1)
+    if (foundIndex != -1){
       this.files[foundIndex].opened = false;
+      if (this.files[foundIndex].selected){
+        this.files[foundIndex].selected = false;
+        for (let file of this.files){
+          if (file.opened)
+            file.selected = true;
+          break;
+        }
+      }
+    }
+  }
+
+  openEditor(fileName: string): void{
+    let foundIndex = this.files.findIndex((file) => file.fileName === fileName);
+    if (foundIndex != -1)
+      this.files[foundIndex].opened = true;
   }
 
   getSelectedFile(): string{
