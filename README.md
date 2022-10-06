@@ -10,7 +10,7 @@
 
 <h3>Features :</h3>
 <ul>
-  <li>5 pages, one by section.</li>
+  <li>5 tabs, one by section.</li>
   <li>A tab system to navigate from a 'file' to another.</li>
   <li>2 languages available (french and english).</li>
 </ul>
