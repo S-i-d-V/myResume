@@ -13,72 +13,62 @@
 .selector {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
 
   height: 48px;
   width: 100%;
 
-  // background-color: green;
-
-  .list {
+  .item {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-around;
 
     height: 48px;
-    width: 100%;
+    width: 176px;
+    padding: 0px 12px 0px 12px;
 
-    .item {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
+    cursor: pointer;
 
-      height: 48px;
-      width: 176px;
-      padding: 0px 12px 0px 12px;
+    .filename {
+      width: 120px;
+    }
+  }
 
-      cursor: pointer;
+  .item:hover {
+    border-bottom: 2px solid #53555E;
 
-      .filename {
-        width: 120px;
-      }
+    .cross {
+      fill: #747681;
     }
 
-    .item:hover {
-      border-bottom: 2px solid #53555E;
+    .cross:hover {
+      background-color: #2A2D33;
+      border-radius: 5%;
+      fill: #A6A8B5;
+    }
+  }
 
-      .cross {
-        fill: #747681;
-      }
+  .selected {
+    color: #D8BA1F;
+    border-bottom: 2px solid #D8BA1F;
 
-      .cross:hover {
-        background-color: #2A2D33;
-        border-radius: 5%;
-        fill: #A6A8B5;
-      }
+    .cross {
+      fill: #D8BA1F;
+    }
+  }
+
+  .selected:hover {
+    color: #D8BA1F;
+    border-bottom: 2px solid #D8BA1F;
+
+    .cross {
+      fill: #D8BA1F;
     }
 
-    .selected {
-      color: #D8BA1F;
-      border-bottom: 2px solid #D8BA1F;
-
-      .cross {
-        fill: #D8BA1F;
-      }
-    }
-
-    .selected:hover {
-      color: #D8BA1F;
-      border-bottom: 2px solid #D8BA1F;
-
-      .cross {
-        fill: #D8BA1F;
-      }
-
-      .cross:hover {
-        fill: #D8BA1F;
-      }
+    .cross:hover {
+      fill: #D8BA1F;
     }
   }
 }
