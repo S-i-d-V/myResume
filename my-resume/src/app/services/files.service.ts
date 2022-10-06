@@ -9,15 +9,15 @@ export class FilesService {
   files: File[] = [
     {
       fileName: 'me.ts',
-      opened: false,
-      selected: false
+      opened: true,
+      selected: true
     }, {
       fileName: 'education.ts',
-      opened: false,
+      opened: true,
       selected: false
     }, {
       fileName: 'experience.ts',
-      opened: false,
+      opened: true,
       selected: false
     }, {
       fileName: 'skills.ts',
