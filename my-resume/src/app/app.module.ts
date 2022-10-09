@@ -4,19 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { EditorComponent } from './components/editor/editor.component';
+import { SelectorComponent } from './components/selector/selector.component';
+import { TabsService } from './services/tabs.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
-    EditorComponent,
+    SelectorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    TabsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

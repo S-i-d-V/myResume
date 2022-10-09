@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { File } from 'src/app/interfaces/file';
-import { FilesService } from 'src/app/services/files.service';
+import { TabsService } from 'src/app/services/tabs.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,7 +11,7 @@ export class SidenavComponent implements OnInit {
   editorOpen: boolean = true;
   filesOpen: boolean = true;
 
-  constructor(public fileService: FilesService) { }
+  constructor(public tabsService: TabsService) { }
 
   ngOnInit(): void {
   }
