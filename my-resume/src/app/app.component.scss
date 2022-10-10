@@ -13,7 +13,22 @@
   height: 100%;
 }
 
-.selector {
+.content{
+  display: flex;
+  flex-direction: column;
+
   width: calc(100% - 264px);
   height: 100%;
+
+  overflow: hidden;
+}
+
+.selector {
+  width: 100%;
+  height: 48px;
+}
+
+.tab {
+  width: 100%;
+  height: calc(100% - 48px);
 }
