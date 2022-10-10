@@ -16,7 +16,12 @@ export class TabsService {
     "contact.ts"
   ];
 
-  openedFiles: Tab[] = [];
+  openedFiles: Tab[] = [
+    {
+      fileName: 'contact.ts',
+      selected: true
+    }
+  ];
 
   constructor(private router: Router, private route: ActivatedRoute) {
     //
