@@ -18,7 +18,7 @@ export class TabsService {
 
   openedFiles: Tab[] = [
     {
-      fileName: 'contact.ts',
+      fileName: 'skills.ts',
       selected: true
     }
   ];
