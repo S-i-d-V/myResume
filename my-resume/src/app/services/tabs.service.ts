@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Tab } from '../interfaces/tab';
 
 @Injectable({
@@ -14,20 +16,26 @@ export class TabsService {
     "contact.ts"
   ];
 
-  openedFiles: Tab[] = [{
-    fileName: 'me.ts',
-    selected: true
-  }];
+  openedFiles: Tab[] = [];
 
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute) {
     //
+  }
+
+  routeTo(fileName: string) {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { tab: fileName },
+    });
   }
 
   selectTab(fileName: string): void{
     this.openedFiles.forEach((file) => file.selected = false);
     let foundIndex = this.openedFiles.findIndex((file) => file.fileName === fileName);
-    if (foundIndex != -1)
+    if (foundIndex != -1){
       this.openedFiles[foundIndex].selected = true;
+      this.routeTo(fileName);
+    }
     else
       this.openTab(fileName);
   }
@@ -49,13 +57,15 @@ export class TabsService {
 
   openTab(fileName: string): void{
     let foundIndex = this.openedFiles.findIndex((file) => file.fileName === fileName);
-    if (foundIndex == -1)
+    if (foundIndex == -1){
       this.openedFiles.push(
         Object.assign({}, {
           fileName: fileName,
           selected: true,
         })
       );
+      this.routeTo(fileName);
+    }
   }
 
   getSelectedTab(): string{
