@@ -44,6 +44,7 @@ export class TabsService {
     let foundIndex = this.openedFiles.findIndex((file) => file.fileName === fileName);
     if (foundIndex != -1){
       if (this.openedFiles[foundIndex].selected == true){
+        this.openedFiles.splice(foundIndex, 1);
         for (let file of this.openedFiles){
           if (file.selected === false){
             file.selected = true;
@@ -51,7 +52,13 @@ export class TabsService {
           }
         }
       }
-      console.log('Removed : ', this.openedFiles.splice(foundIndex, 1));
+      else {
+        this.openedFiles.splice(foundIndex, 1);
+      }
+      if (this.getSelectedTab() != '')
+        this.routeTo(this.getSelectedTab());
+      else
+        this.router.navigate([], {relativeTo: this.route});
     }
   }
 
