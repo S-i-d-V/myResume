@@ -72,7 +72,7 @@ export class TabsService {
         if (this.openedTabs.length == 1)
           this.routeTo(this.getSelectedTab());
         else
-          this.routeTo(this.getSelectedTab());
+          this.routeTo(this.getSelectedTab(), { opened: this.getOpenedTabs() });
       }
       else
         this.router.navigate([], {relativeTo: this.route});
@@ -105,21 +105,20 @@ export class TabsService {
   getOpenedTabs(): string{
     let openedTabs: string = '';
     if (this.openedTabs.length != 0){
-      this.openedTabs.forEach((tab, index) => {
-        console.log('tab opened++');
-        if (tab.selected == false)
-          openedTabs += tab.tabName + '+';
-        if (tab.selected == false && index < length)
-          console.log('Je rajoute un +');
-          //openedTabs += '+';
+      const filteredTabs = this.openedTabs.filter((tab) => tab.selected == false);
+      filteredTabs.forEach((tab, index) => {
+        if (tab.selected == false){
+          openedTabs += tab.tabName;
+          if (index < filteredTabs.length - 1)
+            openedTabs += '+';
+        }
       });
+
     }
     return (openedTabs);
   }
 
   parseQuery(query: string): string[]{
-    let openedTabs: string[] = query.split('+');
-
-    return (openedTabs);
+    return (query.split('+'));
   }
 }

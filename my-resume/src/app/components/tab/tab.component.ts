@@ -18,7 +18,8 @@ export class TabComponent implements OnInit {
     this._queryParamsSubscription = this.route.queryParams.subscribe((params) => {
       if ('tab' in params) {
         const selected = params['tab'];
-        const others = params['opened']
+        const others = params['opened'];
+        this.tabsService.openedTabs = [];
         if (others != undefined){
           for (let tab of this.tabsService.parseQuery(others)){
             if (tab.length != 0)
@@ -29,8 +30,7 @@ export class TabComponent implements OnInit {
       }
       else
         this.tabsService.closeTab(this.tab);
-      },
-    );
+    });
   }
 
   get tab() {
