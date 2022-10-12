@@ -1,7 +1,7 @@
 <div class="container">
-    <app-me class="tab" *ngIf="tabsService.getSelectedTab() == 'me.ts'"></app-me>
-    <app-education class="tab" *ngIf="tabsService.getSelectedTab() == 'education.ts'"></app-education>
-    <app-experience class="tab" *ngIf="tabsService.getSelectedTab() == 'experience.ts'"></app-experience>
-    <app-skills class="tab" *ngIf="tabsService.getSelectedTab() == 'skills.ts'"></app-skills>
-    <app-contact class="tab" *ngIf="tabsService.getSelectedTab() == 'contact.ts'"></app-contact>
+    <app-me class="tab" *ngIf="tab == 'me.ts'"></app-me>
+    <app-education class="tab" *ngIf="tab == 'education.ts'"></app-education>
+    <app-experience class="tab" *ngIf="tab == 'experience.ts'"></app-experience>
+    <app-skills class="tab" *ngIf="tab == 'skills.ts'"></app-skills>
+    <app-contact class="tab" *ngIf="tab == 'contact.ts'"></app-contact>
 </div>

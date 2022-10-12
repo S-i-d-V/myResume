@@ -16,6 +16,10 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get tab() {
+    return this.tabsService.getSelectedTab();
+  }
+
   switchEditor(): void {
     this.editorOpen = !this.editorOpen;
   }
