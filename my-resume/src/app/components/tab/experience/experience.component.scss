@@ -1,6 +1,17 @@
 .container {
     width: 100%;
     height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    // Chrome, Safari, Opera
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    // Firefox, IE and Edge
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .line{
@@ -22,6 +33,8 @@
     
     height: 32px;
     width: 24px;
+
+    color: grey;
 }
 
 .command{

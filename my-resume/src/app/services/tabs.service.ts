@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { Tab } from '../interfaces/tab';
 
 @Injectable({
@@ -8,36 +7,33 @@ import { Tab } from '../interfaces/tab';
 })
 export class TabsService {
 
-  files: string[] = [
-    "me.ts",
+  language: string = '';
+
+  tabs: string[] = [
+    "presentation.ts",
     "education.ts",
     "experience.ts",
     "skills.ts",
     "contact.ts"
   ];
 
-  openedTabs: Tab[] = [
-    {
-      tabName: 'skills.ts',
-      selected: true
-    }
-  ];
+  openedTabs: Tab[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute) {
-    //
+    this.language = this.router.url.slice(1, 3);
   }
 
-  routeTo(tabName: string, opts?: { opened?: string}) {
+  routeTo(tabName: string, opts?: { open?: string}) {
     if (this.openedTabs.length != 1){
-      this.router.navigate([], {
+      this.router.navigate([this.language], {
         relativeTo: this.route,
-        queryParams: { tab: tabName , ...opts},
+        queryParams: { select: tabName , ...opts},
       });
     }
     else {
-      this.router.navigate([], {
+      this.router.navigate([this.language], {
         relativeTo: this.route,
-        queryParams: { tab: tabName },
+        queryParams: { select: tabName },
       });
     }
   }
@@ -47,7 +43,7 @@ export class TabsService {
     let foundIndex = this.openedTabs.findIndex((file) => file.tabName === tabName);
     if (foundIndex != -1){
       this.openedTabs[foundIndex].selected = true;
-      this.routeTo(tabName, { opened: this.getOpenedTabs() });
+      this.routeTo(tabName, { open: this.getOpenedTabs() });
     }
     else
       this.openTab(tabName);
@@ -72,7 +68,7 @@ export class TabsService {
         if (this.openedTabs.length == 1)
           this.routeTo(this.getSelectedTab());
         else
-          this.routeTo(this.getSelectedTab(), { opened: this.getOpenedTabs() });
+          this.routeTo(this.getSelectedTab(), { open: this.getOpenedTabs() });
       }
       else
         this.router.navigate([], {relativeTo: this.route});
@@ -91,7 +87,7 @@ export class TabsService {
       if (this.openedTabs.length == 1)
         this.routeTo(tabName);
       else
-        this.routeTo(tabName, { opened: this.getOpenedTabs() });
+        this.routeTo(tabName, { open: this.getOpenedTabs() });
     }
   }
 
@@ -120,5 +116,19 @@ export class TabsService {
 
   parseQuery(query: string): string[]{
     return (query.split('+'));
+  }
+
+  switchLanguage(){
+    console.log('Switch language');
+    if (this.language == 'fr'){
+      console.log('To english');
+      this.language = 'en';
+      this.routeTo(this.getSelectedTab(), { open: this.getOpenedTabs() });
+    }
+    else{
+      console.log('To french');
+      this.language = 'fr';
+      this.routeTo(this.getSelectedTab(), { open: this.getOpenedTabs() });
+    }
   }
 }

@@ -28,8 +28,13 @@
 }
 
 .line-number{
+    display: flex;
+    justify-content: flex-end;
+    
     height: 32px;
     width: 24px;
+
+    color: grey;
 }
 
 .command{

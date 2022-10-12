@@ -16,9 +16,9 @@ export class TabComponent implements OnInit {
 
   ngOnInit(): void {
     this._queryParamsSubscription = this.route.queryParams.subscribe((params) => {
-      if ('tab' in params) {
-        const selected = params['tab'];
-        const others = params['opened'];
+      if ('select' in params) {
+        const selected = params['select'];
+        const others = params['open'];
         this.tabsService.openedTabs = [];
         if (others != undefined){
           for (let tab of this.tabsService.parseQuery(others)){

@@ -7,7 +7,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SelectorComponent } from './components/selector/selector.component';
 import { TabsService } from './services/tabs.service';
 import { TabComponent } from './components/tab/tab.component';
-import { MeComponent } from './components/tab/me/me.component';
+import { MeComponent } from './components/tab/me/presentation.component';
 import { ContactComponent } from './components/tab/contact/contact.component';
 import { SkillsComponent } from './components/tab/skills/skills.component';
 import { EducationComponent } from './components/tab/education/education.component';
