@@ -16,9 +16,9 @@ export class TabsService {
     "contact.ts"
   ];
 
-  openedFiles: Tab[] = [
+  openedTabs: Tab[] = [
     {
-      fileName: 'skills.ts',
+      tabName: 'skills.ts',
       selected: true
     }
   ];
@@ -27,30 +27,38 @@ export class TabsService {
     //
   }
 
-  routeTo(fileName: string) {
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: { tab: fileName },
-    });
+  routeTo(tabName: string, opts?: { opened?: string}) {
+    if (this.openedTabs.length != 1){
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { tab: tabName , ...opts},
+      });
+    }
+    else {
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { tab: tabName },
+      });
+    }
   }
 
-  selectTab(fileName: string): void{
-    this.openedFiles.forEach((file) => file.selected = false);
-    let foundIndex = this.openedFiles.findIndex((file) => file.fileName === fileName);
+  selectTab(tabName: string): void{
+    this.openedTabs.forEach((file) => file.selected = false);
+    let foundIndex = this.openedTabs.findIndex((file) => file.tabName === tabName);
     if (foundIndex != -1){
-      this.openedFiles[foundIndex].selected = true;
-      this.routeTo(fileName);
+      this.openedTabs[foundIndex].selected = true;
+      this.routeTo(tabName, { opened: this.getOpenedTabs() });
     }
     else
-      this.openTab(fileName);
+      this.openTab(tabName);
   }
 
-  closeTab(fileName: string): void{
-    let foundIndex = this.openedFiles.findIndex((file) => file.fileName === fileName);
+  closeTab(tabName: string): void{
+    let foundIndex = this.openedTabs.findIndex((file) => file.tabName === tabName);
     if (foundIndex != -1){
-      if (this.openedFiles[foundIndex].selected == true){
-        this.openedFiles.splice(foundIndex, 1);
-        for (let file of this.openedFiles){
+      if (this.openedTabs[foundIndex].selected == true){
+        this.openedTabs.splice(foundIndex, 1);
+        for (let file of this.openedTabs){
           if (file.selected === false){
             file.selected = true;
             break;
@@ -58,32 +66,60 @@ export class TabsService {
         }
       }
       else {
-        this.openedFiles.splice(foundIndex, 1);
+        this.openedTabs.splice(foundIndex, 1);
       }
-      if (this.getSelectedTab() != '')
-        this.routeTo(this.getSelectedTab());
+      if (this.getSelectedTab() != ''){
+        if (this.openedTabs.length == 1)
+          this.routeTo(this.getSelectedTab());
+        else
+          this.routeTo(this.getSelectedTab());
+      }
       else
         this.router.navigate([], {relativeTo: this.route});
     }
   }
 
-  openTab(fileName: string): void{
-    let foundIndex = this.openedFiles.findIndex((file) => file.fileName === fileName);
+  openTab(tabName: string): void{
+    let foundIndex = this.openedTabs.findIndex((file) => file.tabName === tabName);
     if (foundIndex == -1){
-      this.openedFiles.push(
+      this.openedTabs.push(
         Object.assign({}, {
-          fileName: fileName,
+          tabName: tabName,
           selected: true,
         })
       );
-      this.routeTo(fileName);
+      if (this.openedTabs.length == 1)
+        this.routeTo(tabName);
+      else
+        this.routeTo(tabName, { opened: this.getOpenedTabs() });
     }
   }
 
   getSelectedTab(): string{
-    let foundIndex = this.openedFiles.findIndex((file) => file.selected === true);
+    let foundIndex = this.openedTabs.findIndex((file) => file.selected === true);
     if (foundIndex != -1)
-      return (this.openedFiles[foundIndex].fileName);
+      return (this.openedTabs[foundIndex].tabName);
     return ('');
+  }
+
+  getOpenedTabs(): string{
+    let openedTabs: string = '';
+    if (this.openedTabs.length != 0){
+      this.openedTabs.forEach((tab, index) => {
+        console.log('tab opened++');
+        if (tab.selected == false)
+          openedTabs += tab.tabName + '+';
+        if (tab.selected == false && index < length)
+          console.log('Je rajoute un +');
+          //openedTabs += '+';
+      });
+    }
+    return (openedTabs);
+  }
+
+  parseQuery(query: string): string[]{
+    let openedTabs: string[] = query.split('+');
+
+    return (openedTabs);
   }
 }

@@ -1,4 +1,4 @@
 export interface Tab {
-  fileName: string;
+  tabName: string;
   selected: boolean;
 }
