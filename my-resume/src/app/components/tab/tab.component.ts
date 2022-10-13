@@ -18,20 +18,9 @@ export class TabComponent implements OnInit {
     this._queryParamsSubscription = this.route.queryParams.subscribe((params) => {
       if ('select' in params) {
         const selected = params['select'];
+        const selectedIndex = params['index'];
         const others = params['open'];
-
-        //let selectedIndex = 0;
-        //for (let tab of this.tabsService.openedTabs){
-        //  if (tab.selected == true)
-        //    break;
-        //  selectedIndex++;
-        //}
-        let selectedIndex = this.tabsService.getSelectedIndex();
-        console.log(this.tabsService.openedTabs);
-        console.log('selectedIndex = ', selectedIndex);
-
         this.tabsService.openedTabs = [];
-
         if (others != undefined){
           let index = 0;
           for (let tab of this.tabsService.parseQuery(others)){

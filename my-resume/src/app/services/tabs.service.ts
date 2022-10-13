@@ -27,7 +27,7 @@ export class TabsService {
     if (this.openedTabs.length != 1){
       this.router.navigate([this.language], {
         relativeTo: this.route,
-        queryParams: { select: tabName , ...opts},
+        queryParams: { select: tabName , index: this.getSelectedIndex(), ...opts},
       });
     }
     else {
