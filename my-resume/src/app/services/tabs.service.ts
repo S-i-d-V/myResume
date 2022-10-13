@@ -25,12 +25,14 @@ export class TabsService {
 
   routeTo(tabName: string, opts?: { open?: string}) {
     if (this.openedTabs.length != 1){
+      this.language = this.router.url.slice(1, 3);
       this.router.navigate([this.language], {
         relativeTo: this.route,
         queryParams: { select: tabName , index: this.getSelectedIndex(), ...opts},
       });
     }
     else {
+      this.language = this.router.url.slice(1, 3);
       this.router.navigate([this.language], {
         relativeTo: this.route,
         queryParams: { select: tabName },
@@ -129,6 +131,7 @@ export class TabsService {
   }
 
   switchLanguage(){
+    console.log('Switch');
     if (this.language == 'fr'){
       this.language = 'en';
       this.routeTo(this.getSelectedTab(), { open: this.getOpenedTabs() });
