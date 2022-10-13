@@ -4,20 +4,22 @@
         <p class="line-number">1</p>
         <p class="command">export</p>
         <p class="class">class</p>
-        <p class="class-name">Presentation</p>
+        <p class="class-name">Présentation</p>
         <p class="bracket">{{ '{' }}</p>
     </div>
     <!-- Comment -->
     <div class="line">
         <p class="line-number">2</p>
         <div class="tabulation"></div>
-        <p class="comment">//Personal informations</p>
+        <p class="comment" *ngIf="tabsService.language == 'en'">//Personal informations</p>
+        <p class="comment" *ngIf="tabsService.language == 'fr'">//Informations personnelles</p>
     </div>
     <!-- Assignation -->
     <div class="line">
         <p class="line-number">3</p>
         <div class="tabulation"></div>
-        <p class="var-name">firstName</p>
+        <p class="var-name" *ngIf="tabsService.language == 'en'">firstName</p>
+        <p class="var-name" *ngIf="tabsService.language == 'fr'">prénom</p>
         <p class="operator">=</p>
         <div class="string">
             <p class="symbol">"</p>
@@ -29,7 +31,8 @@
     <div class="line">
         <p class="line-number">4</p>
         <div class="tabulation"></div>
-        <p class="var-name">lastName</p>
+        <p class="var-name" *ngIf="tabsService.language == 'en'">lastName</p>
+        <p class="var-name" *ngIf="tabsService.language == 'fr'">nom</p>
         <p class="operator">=</p>
         <div class="string">
             <p class="symbol">"</p>
@@ -41,7 +44,8 @@
     <div class="line">
         <p class="line-number">5</p>
         <div class="tabulation"></div>
-        <p class="var-name">birthday</p>
+        <p class="var-name" *ngIf="tabsService.language == 'en'">birthday</p>
+        <p class="var-name" *ngIf="tabsService.language == 'fr'">dateAnniversaire</p>
         <p class="operator">=</p>
         <div class="string">
             <p class="symbol">"</p>
@@ -53,7 +57,8 @@
     <div class="line">
         <p class="line-number">6</p>
         <div class="tabulation"></div>
-        <p class="var-name">location</p>
+        <p class="var-name" *ngIf="tabsService.language == 'en'">location</p>
+        <p class="var-name" *ngIf="tabsService.language == 'fr'">résidence</p>
         <p class="operator">=</p>
         <div class="string">
             <p class="symbol">"</p>
@@ -69,14 +74,15 @@
     <div class="line">
         <p class="line-number">8</p>
         <div class="tabulation"></div>
-        <p class="comment">//Personal statement</p>
+        <p class="comment" *ngIf="tabsService.language == 'en'">//Personal statement</p>
+        <p class="comment" *ngIf="tabsService.language == 'fr'">//Actualité professionel</p>
     </div>
     <!-- Array declaration -->
     <div class="line">
         <p class="line-number">9</p>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">desc</p>
+            <p class="var-name">description</p>
             <p class="operator">:</p>
         </div>
         <div class="array">
@@ -93,7 +99,8 @@
         <div class="tabulation"></div>
         <div class="string">
             <p class="symbol">"</p>
-            <p class="content">After a few jobs in restaurant business,</p>
+            <p class="content" *ngIf="tabsService.language == 'en'">After a few jobs in restaurant business,</p>
+            <p class="content" *ngIf="tabsService.language == 'fr'">À la suite de plusieurs expériences dans la restauration,</p>
             <p class="symbol">",</p>
         </div>
     </div>
@@ -104,7 +111,8 @@
         <div class="tabulation"></div>
         <div class="string">
             <p class="symbol">"</p>
-            <p class="content">I joined 42 Paris to learn how to code.</p>
+            <p class="content" *ngIf="tabsService.language == 'en'">I joined 42 Paris to learn how to code.</p>
+            <p class="content" *ngIf="tabsService.language == 'fr'">j’ai décidé de rejoindre l’école 42 Paris pour apprendre à coder.</p>
             <p class="symbol">",</p>
         </div>
     </div>
@@ -115,7 +123,8 @@
         <div class="tabulation"></div>
         <div class="string">
             <p class="symbol">"</p>
-            <p class="content">in order to validate my curriculum I am looking for an internship !</p>
+            <p class="content" *ngIf="tabsService.language == 'en'">In order to validate my curriculum I am looking for an internship !</p>
+            <p class="content" *ngIf="tabsService.language == 'fr'">Pour valider mon cursus, je suis à la recherche d’un stage !</p>
             <p class="symbol">",</p>
         </div>
     </div>

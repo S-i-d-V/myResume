@@ -4,12 +4,14 @@
         <p class="line-number">1</p>
         <p class="command">import</p>
         <p class="bracket">{{ '{' }}</p>
-        <p class="var-name">SocialNetwork</p>
+        <p class="var-name" *ngIf="tabsService.language == 'en'">SocialNetwork</p>
+        <p class="var-name" *ngIf="tabsService.language == 'fr'">RéseauSocial</p>
         <p class="bracket">{{ '}' }}</p>
         <p class="command">from</p>
         <div class="string">
             <p class="symbol">"</p>
-            <p class="content">../interfaces/socialNetwork</p>
+            <p class="content" *ngIf="tabsService.language == 'en'">../interfaces/social-network</p>
+            <p class="content" *ngIf="tabsService.language == 'fr'">../interfaces/reseau-social</p>
             <p class="symbol">";</p>
         </div>
     </div>
@@ -29,7 +31,8 @@
     <div class="line">
         <p class="line-number">3</p>
         <div class="tabulation"></div>
-        <p class="var-name">email</p>
+        <p class="var-name" *ngIf="tabsService.language == 'en'">email</p>
+        <p class="var-name" *ngIf="tabsService.language == 'fr'">adresseMail</p>
         <p class="operator">=</p>
         <div class="string">
             <p class="symbol">"</p>
@@ -46,11 +49,13 @@
         <p class="line-number">20</p>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">links</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">socialNetworks</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">réseauxSociaux</p>
             <p class="operator">:</p>
         </div>
         <div class="array">
-            <p class="class">SocialNetwork</p>
+            <p class="class" *ngIf="tabsService.language == 'en'">SocialNetwork</p>
+            <p class="class" *ngIf="tabsService.language == 'fr'">RéseauSocial</p>
             <p class="operator">[]</p>
         </div>
         <p class="operator">=</p>
@@ -70,7 +75,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">name</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">name</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">nom</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -86,7 +92,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">link</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">url</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">lien</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -109,7 +116,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">name</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">name</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">nom</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -125,7 +133,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">link</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">url</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">lien</p>
             <p class="operator">:</p>
         </div>
         <div class="string">

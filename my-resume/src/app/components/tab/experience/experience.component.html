@@ -4,12 +4,14 @@
         <p class="line-number">1</p>
         <p class="command">import</p>
         <p class="bracket">{{ '{' }}</p>
-        <p class="var-name">Job</p>
+        <p class="var-name" *ngIf="tabsService.language == 'en'">Job</p>
+        <p class="var-name" *ngIf="tabsService.language == 'fr'">Métier</p>
         <p class="bracket">{{ '}' }}</p>
         <p class="command">from</p>
         <div class="string">
             <p class="symbol">"</p>
-            <p class="content">../interfaces/job</p>
+            <p class="content" *ngIf="tabsService.language == 'en'">../interfaces/job</p>
+            <p class="content" *ngIf="tabsService.language == 'fr'">../interfaces/metier</p>
             <p class="symbol">";</p>
         </div>
     </div>
@@ -22,7 +24,8 @@
         <p class="line-number">3</p>
         <p class="command">export</p>
         <p class="class">class</p>
-        <p class="class-name">Experience</p>
+        <p class="class-name" *ngIf="tabsService.language == 'en'">Experience</p>
+        <p class="class-name" *ngIf="tabsService.language == 'fr'">Éxperience</p>
         <p class="bracket">{{ '{' }}</p>
     </div>
     <!-- Array declaration -->
@@ -30,11 +33,13 @@
         <p class="line-number">4</p>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">jobs</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">jobs</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">jobs</p>
             <p class="operator">:</p>
         </div>
         <div class="array">
-            <p class="class">Job</p>
+            <p class="class" *ngIf="tabsService.language == 'en'">Job</p>
+            <p class="class" *ngIf="tabsService.language == 'fr'">Métier</p>
             <p class="operator">[]</p>
         </div>
         <p class="operator">=</p>
@@ -54,12 +59,14 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">title</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">title</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">titre</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
             <p class="symbol">"</p>
-            <p class="content">Apprentice cook</p>
+            <p class="content" *ngIf="tabsService.language == 'en'">Apprentice cook</p>
+            <p class="content" *ngIf="tabsService.language == 'fr'">Apprenti cuisinier</p>
             <p class="symbol">",</p>
         </div>
     </div>
@@ -70,7 +77,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">company</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">company</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">entreprise</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -86,7 +94,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">location</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">location</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">ville</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -102,7 +111,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">year</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">year</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">année</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -125,12 +135,14 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">title</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">title</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">titre</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
             <p class="symbol">"</p>
-            <p class="content">Versatile crew</p>
+            <p class="content" *ngIf="tabsService.language == 'en'">Versatile Teammate</p>
+            <p class="content" *ngIf="tabsService.language == 'fr'">Équipier polyvalent</p>
             <p class="symbol">",</p>
         </div>
     </div>
@@ -141,7 +153,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">company</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">company</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">entreprise</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -157,7 +170,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">location</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">location</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">ville</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -173,7 +187,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">year</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">year</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">année</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -196,12 +211,14 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">title</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">title</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">titre</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
             <p class="symbol">"</p>
-            <p class="content">Head Waiter</p>
+            <p class="content" *ngIf="tabsService.language == 'en'">Head Waiter</p>
+            <p class="content" *ngIf="tabsService.language == 'fr'">Chef de rang</p>
             <p class="symbol">",</p>
         </div>
     </div>
@@ -212,7 +229,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">company</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">company</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">entreprise</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -228,7 +246,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">location</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">location</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">ville</p>
             <p class="operator">:</p>
         </div>
         <div class="string">
@@ -244,7 +263,8 @@
         <div class="tabulation"></div>
         <div class="tabulation"></div>
         <div class="key">
-            <p class="var-name">year</p>
+            <p class="var-name" *ngIf="tabsService.language == 'en'">year</p>
+            <p class="var-name" *ngIf="tabsService.language == 'fr'">année</p>
             <p class="operator">:</p>
         </div>
         <div class="string">

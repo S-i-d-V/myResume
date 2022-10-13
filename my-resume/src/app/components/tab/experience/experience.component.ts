@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TabsService } from 'src/app/services/tabs.service';
 
 @Component({
   selector: 'app-experience',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceComponent implements OnInit {
 
-  constructor() { }
+  constructor(public tabsService: TabsService) { }
 
   ngOnInit(): void {
   }
