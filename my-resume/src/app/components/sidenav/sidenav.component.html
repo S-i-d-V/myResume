@@ -21,7 +21,8 @@
   <div class="subnav">
     <!-- Explorer -->
     <div class="explorer">
-      <p class="text">EXPLORER</p>
+      <p class="text" *ngIf="tabsService.language == 'en'">EXPLORER</p>
+      <p class="text" *ngIf="tabsService.language == 'fr'">EXPLORATEUR</p>
       <svg class="more" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4.25 13.5C4.94036 13.5 5.5 12.9404 5.5 12.25C5.5 11.5596 4.94036 11 4.25 11C3.55964 11 3 11.5596 3 12.25C3 12.9404 3.55964 13.5 4.25 13.5Z" stroke-width="2"/>
         <path d="M12.25 13.5C12.9404 13.5 13.5 12.9404 13.5 12.25C13.5 11.5596 12.9404 11 12.25 11C11.5596 11 11 11.5596 11 12.25C11 12.9404 11.5596 13.5 12.25 13.5Z" stroke-width="2"/>
@@ -41,7 +42,8 @@
         <svg *ngIf="!editorOpen" class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M7 18.4L13 12.4L7 6.4L8.2 4L16.6 12.4L8.2 20.8L7 18.4Z"/>
         </svg>
-        <p class="text">OPEN EDITORS</p>
+        <p class="text" *ngIf="tabsService.language == 'en'">OPEN EDITORS</p>
+        <p class="text" *ngIf="tabsService.language == 'fr'">ÉDITEURS OUVERTS</p>
       </div>
 
       <!-- List -->
@@ -75,7 +77,8 @@
         <svg *ngIf="!filesOpen" class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M7 18.4L13 12.4L7 6.4L8.2 4L16.6 12.4L8.2 20.8L7 18.4Z"/>
         </svg>
-        <p class="text">MY RESUME</p>
+        <p class="text" *ngIf="tabsService.language == 'en'">MY RESUME</p>
+        <p class="text" *ngIf="tabsService.language == 'fr'">MON CV</p>
       </div>
 
       <!-- List -->
