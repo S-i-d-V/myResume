@@ -19,14 +19,32 @@ export class TabComponent implements OnInit {
       if ('select' in params) {
         const selected = params['select'];
         const others = params['open'];
+
+        //let selectedIndex = 0;
+        //for (let tab of this.tabsService.openedTabs){
+        //  if (tab.selected == true)
+        //    break;
+        //  selectedIndex++;
+        //}
+        let selectedIndex = this.tabsService.getSelectedIndex();
+        console.log(this.tabsService.openedTabs);
+        console.log('selectedIndex = ', selectedIndex);
+
         this.tabsService.openedTabs = [];
+
         if (others != undefined){
+          let index = 0;
           for (let tab of this.tabsService.parseQuery(others)){
+            if (index == selectedIndex)
+              this.tabsService.openTab(selected);
             if (tab.length != 0)
               this.tabsService.openTab(tab);
+            index++;
           }
+          this.tabsService.selectTab(selected);
         }
-        this.tabsService.selectTab(selected);
+        else
+          this.tabsService.selectTab(selected);
       }
       else
         this.tabsService.closeTab(this.tab);

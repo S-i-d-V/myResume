@@ -98,6 +98,16 @@ export class TabsService {
     return ('');
   }
 
+  getSelectedIndex(): number{
+    let selectedIndex = 0;
+    for (let tab of this.openedTabs){
+      if (tab.selected == true)
+        break;
+      selectedIndex++;
+    }
+    return (selectedIndex);
+  }
+
   getOpenedTabs(): string{
     let openedTabs: string = '';
     if (this.openedTabs.length != 0){
@@ -119,14 +129,11 @@ export class TabsService {
   }
 
   switchLanguage(){
-    console.log('Switch language');
     if (this.language == 'fr'){
-      console.log('To english');
       this.language = 'en';
       this.routeTo(this.getSelectedTab(), { open: this.getOpenedTabs() });
     }
     else{
-      console.log('To french');
       this.language = 'fr';
       this.routeTo(this.getSelectedTab(), { open: this.getOpenedTabs() });
     }
