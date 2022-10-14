@@ -1,0 +1,132 @@
+.container {
+    width: 100%;
+    height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    // Chrome, Safari, Opera
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    // Firefox, IE and Edge
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.line{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    height: 32px;
+}
+
+.line > * {
+    margin-right: 10px;
+}
+
+.line-number{
+    display: flex;
+    justify-content: flex-end;
+    
+    height: 32px;
+    width: 24px;
+
+    color: grey;
+}
+
+.command{
+    height: 32px;
+
+    color: rgb(208, 49, 163);
+}
+
+.class{
+    height: 32px;
+
+    color: rgb(81, 205, 224);
+}
+
+.class-name{
+    height: 32px;
+
+    color: greenyellow;
+}
+
+.bracket{
+    height: 32px;
+    color: yellow
+}
+
+.tabulation{
+    height: 32px;
+    width: 24px;
+}
+
+.comment{
+    height: 32px;
+
+    color: grey;
+}
+
+.var-name{
+    height: 32px;
+
+    color: white;
+}
+
+.operator{
+    height: 32px;
+
+    color: rgb(208, 49, 163);
+}
+
+.symbol{
+    height: 32px;
+    
+    color: grey;
+}
+
+.string {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 32px;
+
+    .symbol{
+        margin: 0px 2px 0px 2px;
+    }
+
+    .content {
+        height: 32px;
+
+        color: yellow;
+    }
+}
+
+.key {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 32px;
+}
+
+.array {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 32px;
+}
+
+.close-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 32px;
+}
