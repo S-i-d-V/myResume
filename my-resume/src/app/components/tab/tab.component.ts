@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { TabsService } from 'src/app/services/tabs.service';
 
@@ -12,11 +12,11 @@ export class TabComponent implements OnInit {
 
   private _queryParamsSubscription?: Subscription;
 
-  constructor(public tabsService: TabsService, private route: ActivatedRoute) { }
+  constructor(public tabsService: TabsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
     this._queryParamsSubscription = this.route.queryParams.subscribe((params) => {
+      this.tabsService.language = this.router.url.slice(1, 3);
       if ('select' in params) {
         const selected = params['select'];
         const selectedIndex = params['index'];
