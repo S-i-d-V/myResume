@@ -41,14 +41,13 @@
     width: 64px;
     height: 50%;
 
-    .settings {
-      fill: #53555E;
-
+    .language {
       cursor: pointer;
-
-      :hover {
-        fill: #747681;
-      }
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
+    .language:hover {
+      opacity: 0.6;
     }
   }
 }
